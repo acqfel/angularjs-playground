@@ -12,16 +12,29 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script src="app.js"></script>
   </head>
-  <body>
-    <h1>AngularJS Playground</h1>
+  <body ng-app="myApp">
+    <div class="container">
+      <div class="row text-center">
+        <h1>AngularJS Playground</h1>
+      </div>
+      <div class="row text-center" ng-controller="HeroNamePower">
+        <h4>Hero Name Calculator</h4>
+        Insert your Hero Name:
+        <input type="text"
+          ng-model="name"
+          ng-keyup="displayPower();">
+        <div>Total numeric value of Hero's Name is: {{totalValue}}</div>
+      </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
