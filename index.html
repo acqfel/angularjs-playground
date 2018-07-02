@@ -34,6 +34,27 @@
           ng-keyup="displayPower();">
         <div>Total numeric value of Hero's Name is: {{totalValue}}</div>
       </div>
+      <hr>
+      <div class="row text-center">
+        <h4>Convert number to currency</h4>
+      </div>
+      <div class="row text-center" ng-controller="CurrencyValue">
+        <input type="number" ng-model="value" ng-blur="numToMoney();">
+        <div>Currency Value: {{currency}}</div>
+      </div>
+      <hr>
+      <div class="row text-center">
+        <h4>Like or Dislike ?</h4>
+      </div>
+      <div class="row text-center" ng-controller="LikeCtrl">
+        <button class="btn btn-primary" ng-click="like();">Like</button>
+        <button class="btn btn-danger" ng-click="dislike();">Dislike</button>
+        <h4>
+          {{message()}}
+          <span class="glyphicon glyphicon-thumbs-{{choice}}"></span>
+        </h4>
+      </div>
+      <hr>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
