@@ -21,6 +21,7 @@ angular.module('myApp', [])
   }
 })
 .controller('CurrencyValue', function($scope, $filter) {
+
   $scope.value = 0;
   $scope.currency = 0;
 
@@ -29,12 +30,18 @@ angular.module('myApp', [])
   }
 })
 .controller('LikeCtrl', function($scope) {
-  $scope.choice = "up";
+
+  $scope.choice = "";
 
   $scope.message = function() {
     var answer;
-    answer = $scope.choice === "up" ? "like" : "dislike"
-    return "You choose: " + answer + "  ";
+    if ($scope.choice === "") {
+      answer = "";
+      return answer;
+    } else {
+      answer = $scope.choice === "up" ? "like" : "dislike";
+      return "You choose: " + answer + "  ";
+    }
   }
 
   $scope.like = function() {

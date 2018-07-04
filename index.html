@@ -50,7 +50,7 @@
         <button class="btn btn-primary" ng-click="like();">Like</button>
         <button class="btn btn-danger" ng-click="dislike();">Dislike</button>
         <h4>
-          {{message()}}
+          {{message() | uppercase}}
           <span class="glyphicon glyphicon-thumbs-{{choice}}"></span>
         </h4>
       </div>
