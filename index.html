@@ -55,6 +55,22 @@
         </h4>
       </div>
       <hr>
+      <div class="row text-center">
+        <h4>Binding</h4>
+      </div>
+      <div class="row text-center" ng-controller="BindingCtrl">
+        <h5><strong>1-time binding</strong></h5>
+        <p>{{::fixedValue}}</p>
+        <h5><strong>1-way binding</strong></h5>
+        <button class="btn btn-primary" ng-click="change1w();">Change my status</button>
+        <span> => I am {{btn}}</span>
+        <h5><strong>2-way binding</strong></h5>
+        <input type="text"
+          ng-model="bind2"
+          >
+        <span> => {{bind2}}</span>
+      </div>
+      <hr>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

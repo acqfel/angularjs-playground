@@ -51,6 +51,19 @@ angular.module('myApp', [])
   $scope.dislike = function() {
     $scope.choice = "down";
   };
-});
+})
+.controller('BindingCtrl', BindingCtrl);
+
+BindingCtrl.$inject = ['$scope'];
+function BindingCtrl($scope) {
+  $scope.fixedValue = "I am fixed";
+  $scope.btn = true;
+  $scope.bind2 = "write a any word";
+
+  $scope.change1w = function() {
+    $scope.btn = $scope.btn === true ? false : true;
+  }
+
+}
 
 })();
