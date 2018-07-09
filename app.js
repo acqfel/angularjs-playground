@@ -27,7 +27,7 @@ angular.module('myApp', [])
 
   $scope.numToMoney = function() {
     $scope.currency = $filter('currency')($scope.value, "USD$", 2);
-  }
+  };
 })
 .controller('LikeCtrl', function($scope) {
 
@@ -42,7 +42,7 @@ angular.module('myApp', [])
       answer = $scope.choice === "up" ? "like" : "dislike";
       return "You choose: " + answer + "  ";
     }
-  }
+  };
 
   $scope.like = function() {
     $scope.choice = "up";
@@ -52,7 +52,8 @@ angular.module('myApp', [])
     $scope.choice = "down";
   };
 })
-.controller('BindingCtrl', BindingCtrl);
+.controller('BindingCtrl', BindingCtrl)
+.controller('CityListCtrl', CityListCtrl);
 
 BindingCtrl.$inject = ['$scope'];
 function BindingCtrl($scope) {
@@ -62,8 +63,51 @@ function BindingCtrl($scope) {
 
   $scope.change1w = function() {
     $scope.btn = $scope.btn === true ? false : true;
-  }
+  };
 
+}
+
+// source mockaroo.com
+var cityList = [{
+  "country": "Indonesia",
+  "code": "ID",
+  "lat": -2.389643,
+  "lng": 112.907402,
+  "city": "Kandang Timur",
+  "timezone": "Asia/Jakarta"
+}, {
+  "country": "United States",
+  "code": "US",
+  "lat": 41.0285407,
+  "lng": -81.4633516,
+  "city": "Akron",
+  "timezone": "America/New_York"
+}, {
+  "country": "Indonesia",
+  "code": "ID",
+  "lat": -7.3856497,
+  "lng": 107.7991545,
+  "city": "Cikajang",
+  "timezone": "Asia/Jakarta"
+}, {
+  "country": "France",
+  "code": "FR",
+  "lat": 48.6843964,
+  "lng": 2.2924369,
+  "city": "Longjumeau",
+  "timezone": "Europe/Paris"
+}, {
+  "country": "China",
+  "code": "CN",
+  "lat": 34.542308,
+  "lng": 118.752842,
+  "city": "Donghai",
+  "timezone": "Asia/Shanghai"
+}];
+
+CityListCtrl.$inject = ['$scope'];
+function CityListCtrl($scope){
+  $scope.cityList = cityList;
 }
 
 })();

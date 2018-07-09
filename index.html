@@ -71,6 +71,21 @@
         <span> => {{bind2}}</span>
       </div>
       <hr>
+      <div class="row text-center">
+        <h4>ng-repeat</h4>
+      </div>
+      <div class="row" ng-controller="CityListCtrl">
+        <ul>
+          <li ng-repeat="city in cityList" class="col-xs-12 col-sm-6 col-md-4">
+            <p>City: {{ city.city }} - Number: {{ $index + 1 }}</p>
+            <p> Country: {{ city.country }} - Code: {{ city.code }}</p>
+            <p></p>
+            <p>Latitude: {{city.lat}}</p>
+            <p>Longitude: {{ city.lng }}</p>
+            <p>Timezone: {{ city.timezone }}</p>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
