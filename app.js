@@ -53,7 +53,8 @@ angular.module('myApp', [])
   };
 })
 .controller('BindingCtrl', BindingCtrl)
-.controller('CityListCtrl', CityListCtrl);
+.controller('CityListCtrl', CityListCtrl)
+.controller('PersonListCtrl', PersonListCtrl);
 
 BindingCtrl.$inject = ['$scope'];
 function BindingCtrl($scope) {
@@ -108,6 +109,33 @@ var cityList = [{
 CityListCtrl.$inject = ['$scope'];
 function CityListCtrl($scope){
   $scope.cityList = cityList;
+}
+
+var personList = [{
+  "name": "Addy"
+}, {
+  "name": "Hashim"
+}, {
+  "name": "Ray"
+}, {
+  "name": "Torre"
+}, {
+  "name": "Fax"
+}, {
+  "name": "Olivette"
+}, {
+  "name": "Cicely"
+}, {
+  "name": "Kent"
+}, {
+  "name": "Noel"
+}, {
+  "name": "Nolie"
+}];
+
+PersonListCtrl.$inject = ['$scope'];
+function PersonListCtrl($scope){
+  $scope.personList = personList;
 }
 
 })();
