@@ -54,7 +54,10 @@ angular.module('myApp', [])
 })
 .controller('BindingCtrl', BindingCtrl)
 .controller('CityListCtrl', CityListCtrl)
-.controller('PersonListCtrl', PersonListCtrl);
+.controller('PersonListCtrl', PersonListCtrl)
+.controller('ShopCartAddCtrl', ShopCartAddCtrl)
+.controller('ShopCartShowCtrl', ShopCartShowCtrl)
+.service('ShopCartService', ShopCartService);
 
 BindingCtrl.$inject = ['$scope'];
 function BindingCtrl($scope) {
@@ -136,6 +139,53 @@ var personList = [{
 PersonListCtrl.$inject = ['$scope'];
 function PersonListCtrl($scope){
   $scope.personList = personList;
+}
+
+ShopCartAddCtrl.$inject = ['ShopCartService'];
+function ShopCartAddCtrl(ShopCartService) {
+  var addItem = this;
+
+  addItem.itemName = "";
+  addItem.itemQuantity = "";
+  console.log(addItem);
+  addItem.addItem = function () {
+    ShopCartService.addItem(addItem.itemName, addItem.itemQuantity);
+  }
+}
+
+ShopCartShowCtrl.$inject = ['ShopCartService'];
+function ShopCartShowCtrl(ShopCartService) {
+  var showItem = this;
+
+  showItem.items = ShopCartService.getItems();
+
+  showItem.removeItem = function (itemIndex) {
+    ShopCartService.removeItem(itemIndex);
+  };
+}
+
+function ShopCartService() {
+  var service = this;
+
+  // List of shop cart items
+  var items = [];
+
+  service.addItem = function (itemName, quantity) {
+    console.log("addItem in service: "+itemName);
+    var item = {
+      name: itemName,
+      quantity: quantity
+    };
+    items.push(item);
+  };
+
+  service.removeItem = function (itemIdex) {
+    items.splice(itemIdex, 1);
+  };
+
+  service.getItems = function () {
+    return items;
+  };
 }
 
 })();
