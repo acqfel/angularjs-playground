@@ -97,8 +97,8 @@
       </div>
       <div class="row text-center" ng-controller="PersonListCtrl">
         <input type="text" ng-model="search">
-        <ul>
-          <li ng-repeat="person in personList | filter : search">
+        <ul class="list-group">
+          <li ng-repeat="person in personList | filter : search" class="list-group-item">
             {{ person.name }}
           </li>
         </ul>
@@ -122,6 +122,17 @@
             <button ng-click="showItem.remove($index);">Remove</button>
           </li>
         </ul>
+      </div>
+      <hr>
+
+      <div class="row text-center">
+        <h4>Timer Control</h4>
+      </div>
+      <div class="row text-center" ng-controller="TimerCtrl">
+        <button ng-show="displayStart" class="btn btn-primary" ng-click="start();">Start</button>
+        <button class="btn btn-default" ng-click="stop();">Stop</button>
+        <button class="btn btn-danger" ng-click="reset();">Reset</button>
+        <p>Time: {{time}} s</p>
       </div>
     </div>
 

@@ -57,7 +57,8 @@ angular.module('myApp', [])
 .controller('PersonListCtrl', PersonListCtrl)
 .controller('ShopCartAddCtrl', ShopCartAddCtrl)
 .controller('ShopCartShowCtrl', ShopCartShowCtrl)
-.service('ShopCartService', ShopCartService);
+.service('ShopCartService', ShopCartService)
+.controller('TimerCtrl', TimerCtrl);
 
 BindingCtrl.$inject = ['$scope'];
 function BindingCtrl($scope) {
@@ -186,6 +187,41 @@ function ShopCartService() {
   service.getItems = function () {
     return items;
   };
+}
+
+TimerCtrl.$inject = ['$scope', '$interval'];
+function TimerCtrl($scope, $interval){
+  var promise;
+
+  $scope.displayStart = false;
+
+  $scope.time = 0;
+
+  $scope.addSecond = function() {
+    $scope.time += 1;
+  }
+
+  $scope.start = function() {
+    $scope.stop();
+
+    promise = $interval( function(){ $scope.addSecond(); }, 1000);
+
+    $scope.displayStart = false;
+  }
+
+  $scope.stop = function() {
+    $interval.cancel(promise);
+
+    $scope.displayStart = true;
+  }
+
+  $scope.reset = function() {
+    $scope.time = 0;
+
+    $scope.displayStart = true;
+  }
+
+  promise = $interval( function(){ $scope.addSecond(); }, 1000);
 }
 
 })();
